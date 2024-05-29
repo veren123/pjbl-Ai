@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password generator</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #282c35; /* Ubah warna latar belakang sesuai keinginan Anda */
+        color: #ffffff; /* Ubah warna teks sesuai keinginan Anda */
+        font-family: 'Arial', sans-serif;
+    }
+
+    .coming-soon-container {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.5em;
+    }
+
+    #countdown {
+        font-size: 2em;
+        margin-top: 20px;
+    }
+
+</style>
+
+<body>
+    <div class="coming-soon-container">
+        <h1>Coming Soon</h1>
+        <p>Nantikan pembuat password buatan kelompok Pjbl-Ai</p>
+        <p>Masih dalam tahap pengembangan</p>
+        <div id="countdown"></div>
+    </div>
+
+    <script>
+        // Tanggal target untuk hitung mundur
+        var targetDate = new Date("December 1, 2024 00:00:00").getTime();
+
+        // Memperbarui hitungan mundur setiap detik
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = targetDate - now;
+
+            // Perhitungan waktu
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Menampilkan hitungan mundur
+            document.getElementById("countdown").innerHTML = days + " hari " + hours + " jam "
+                + minutes + " menit " + seconds + " detik ";
+
+            // Jika hitungan mundur berakhir, tampilkan pesan
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Segera Hadir!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

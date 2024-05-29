@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog pjbl-Ai</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <style>
+        /* CSS dari tampilan blog */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+        }
+
+        .navbar-link {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 100px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar-link:hover {
+            color: #ffd700;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #555;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        /* Tempat banner */
+        .banner {
+            background-color: #333;
+            height: 300px;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url(https://c4.wallpaperflare.com/wallpaper/744/747/648/morning-sun-on-gunung-batur-wallpaper-preview.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Tempat untuk kartu */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 250px;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+        }
+
+        .card-content p {
+            color: #666;
+        }
+
+        .card-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .card-button:hover {
+            background-color: #45a049;
+        }
+
+        /* teks berjalan */
+        .marquee-container {
+            background-color: #ffd700;
+        }
+
+        /* tempat untuk iklan */
+        .ad-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: none;
+            /* Defaultnya tidak ditampilkan */
+            z-index: 9999;
+            /* Pastikan iklan tampil di atas konten */
+        }
+
+        /* Tombol untuk menutup iklan */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+
+        /* Tempat untuk footer */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+
+
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .navbar-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-link {
+                margin: 10px 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #333;
+                min-width: 100%;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropbtn {
+                margin-left: 0;
+                width: 100%;
+                text-align: left;
+                padding: 10px;
+            }
+
+            .dropdown-content a {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Blog Pjbl-Ai</a>
+            </div>
+            <div class="navbar-links">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="#" class="navbar-link">Contact</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Berita</button>
+                    <div class="dropdown-content">
+                        <a href="#">Terbaru</a>
+                        <a href="#">Lama</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h1>Selamat datang di blog Pjbl-Ai</h1>
+        <p>Silahkan gunakan mesin pencarian dari kami</p>
+        <form action="#" method="GET">
+            <input type="text" name="search" id="search" placeholder="Search...">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <marquee class="marquee" behavior="scroll" direction="left" scrollamount="8"><b>Selamat datang di website
+                officialnya Pjbl-Ai.</b></marquee>
+    </div>
+
+
+    <!-- iklan yang saya buat -->
+    <div class="ad-container" id="adContainer">
+        <span class="close-btn" onclick="closeAd()">X</span>
+        <h2>ads power by veren 8A</h2>
+        <p>Dapatkan apk nya agar tidak dapat iklan, download apknya dong tuan</p>
+    </div>
+
+    <!-- Card -->
+    <div class="card-container">
+        <div class="card">
+            <img src="ai kesehatan.jpg" alt="Card Image">
+            <div class="card-content">
+                <h3>Kemajuan AI dalam Layanan Kesehatan</h3>
+                <p>Perkembangan terkini dari kecerdasan buatan di dunia perawatan kesehatan memungkinkan peningkatan
+                    dalam diagnosis yang akurat, pengambilan keputusan klinis, dan perawatan pasien yang optimal.</p>
+                <a href="Kemajuan AI dalam Layanan Kesehatan.html" class="card-button">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="sampah ai.jpg" alt="Card Image">
+            <div class="card-content">
+                <h3>Pengelolaan Sampah Menggunakan Teknologi AI</h3>
+                <p>Pengelolaan sampah menjadi isu yang semakin penting saat ini, terutama dengan pertumbuhan populasi
+                    yang terus meningkat dan peningkatan penggunaan produk konsumen. Sampah yang tidak dikelola dengan
+                    baik dapat menjadi masalah lingkungan dan kesehatan yang serius. Namun,</p>
+                <a href="Pengelolaan Sampah Menggunakan Teknologi AI.html" class="card-button">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="sampah jakarta.jpeg" alt="Card Image">
+            <div class="card-content">
+                <h3>Sampah di DKI Capai 7.500 Ton Per Hari, Anggota DPRD Ungkit Proyek ITF</h3>
+                <p>Deputi Gubernur DKI Jakarta Bidang Budaya dan Pariwisata Marullah Matali mengatakan Jakarta dipenuhi
+                    7.500 ton sampah per hari. Anggota DPRD DKI Jakarta Fraksi PDIP Dwi Rio Sambodo menilai Pemprov
+                    perlu lebih fokus dan berani dalam melakukan terobosan penanganan sampah di DKI. "Pemprov DKI
+                    Jakarta melalui Dinas LH harus lebih fokus dan berani melakukan terobosan-terobosan dalam penanganan
+                    sampah DKI Jakarta terutama dengan memberikan sosialisasi dan edukasi tentang mengurangi, memilah
+                </p>
+                <a href="Sampah di DKI Capai 7.500 Ton Per Hari, Anggota DPRD Ungkit Proyek ITF.html" class="card-button">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- tempat Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pjbl-Ai. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <!-- tempat untuk main logika -->
+    <script>
+        // Fungsi untuk menampilkan iklan
+        function showAd() {
+            var adContainer = document.getElementById('adContainer');
+            adContainer.style.display = 'block'; // Menampilkan iklan
+        }
+
+        // Fungsi untuk menutup iklan
+        function closeAd() {
+            var adContainer = document.getElementById('adContainer');
+            adContainer.style.display = 'none'; // Menutup iklan
+        }
+
+        // Fungsi untuk menampilkan iklan secara otomatis setiap 2 detik
+        setInterval(showAd, 2000);
+    </script>
+</body>
+
+</html>

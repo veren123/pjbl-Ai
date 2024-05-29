@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <link rel="stylesheet" href="styleso.css">
+    <title>Konverter Biner by pjbl-Ai</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Konverter Biner by pjbl-Ai</h1>
+        <label for="decimalInput">Masukkan angka desimal:</label>
+        <input type="number" id="decimalInput" placeholder="Enter decimal number" />
+        <button class="convert-btn" onclick="convertToBinary()">Konversikan ke Biner</button>
+        <p id="binaryResult">Hasil biner akan ditampilkan di sini</p>
+
+        <hr>
+
+        <label for="binaryInput">Masukkan bilangan biner:</label>
+        <input type="text" id="binaryInput" placeholder="Enter binary number" />
+        <button class="convert-btn" onclick="convertToDecimal()">Konversikan ke Desimal</button>
+        <p id="decimalResult">Hasil desimal akan ditampilkan di sini</p>
+
+        <table id="conversionTable">
+            <thead>
+                <tr>
+                    <th>Decimal</th>
+                    <th>Binary</th>
+                    <th>Decimal from Binary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be added dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Add an initial entry for demonstration purposes
+        addInitialEntry();
+    </script>
+    
+</body>
+</html>
